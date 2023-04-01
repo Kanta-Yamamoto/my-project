@@ -54,7 +54,7 @@ export const Sidebar = ({
   const defaultItems: Item[] = [
     {
       name: "ホーム",
-      link: "",
+      link: "/",
     },
     {
       name: "通知",
@@ -62,27 +62,20 @@ export const Sidebar = ({
       hasUnderbar: true,
     },
     {
+      name: "マイページ",
+      link: "/mypage",
+    },
+    {
+      name: "タスク",
+      link: "/task",
+      // nested: [
+      //   { name: "メニュー", link: "" },
+      //   { name: "ポートフォリオ", link: "" },
+      // ],
+    },
+    {
       name: "検索",
       link: "",
-    },
-    {
-      name: "サンプル",
-      link: "",
-
-      nested: [{ name: "ファイル", link: "" }],
-    },
-    {
-      name: "サンプル2",
-      link: "",
-    },
-    { name: "サンプル3", link: "" },
-    {
-      name: "サンプル4",
-      link: "",
-      nested: [
-        { name: "メニュー", link: "" },
-        { name: "ポートフォリオ", link: "" },
-      ],
     },
   ];
 
@@ -98,7 +91,7 @@ export const Sidebar = ({
 
   return (
     <>
-      <div className="relative z-50">
+      <div className="relative z-100">
         <div
           onMouseLeave={() => setIsOpen(!isOpen)}
           className={`${"fixed"}  backdrop-blur-lg shadow-lg h-screen overflow-hidden transition-all ease-in-out ${
