@@ -13,14 +13,16 @@ function Layout({ children }: LayoutProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-full h-[60px] bg-white">
+      <div className="w-full h-[60px]">
         <Sidebar
           type="default"
           avatarSrc="/default_avatar.svg"
           name="デフォルトユーザー"
         />
       </div>
-      <main className="w-full">{children}</main>
+      <main className="px-4 pt-8 sm:pt-10 sm:px-0 max-w-[400px] mx-auto flex justify-center items-center flex-col">
+        {children}
+      </main>
     </div>
   );
 }
