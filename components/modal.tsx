@@ -17,7 +17,7 @@ const style = {
   },
 } as const;
 
-export const Modal = ({
+const Modal = ({
   children,
   isOpen,
   setIsOpen,
@@ -57,3 +57,5 @@ export const Modal = ({
     </>
   );
 };
+
+export default Modal;

@@ -1,7 +1,6 @@
-import { Avatar } from "./components/Avatar";
-import { Button } from "./components/Button";
-import Layout from "./components/Layout";
-import { Modal } from "./components/modal";
+import Button from "../components/Button";
+import Layout from "../components/Layout";
+import Modal from "../components/modal";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";

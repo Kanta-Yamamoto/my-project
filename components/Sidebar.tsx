@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
 import { useState } from "react";
-import { Avatar } from "../components/Avatar";
+import Avatar from "./Avatar";
 
 interface NestedMenuItem {
   name: string;
@@ -34,7 +34,7 @@ const style = {
   },
 } as const;
 
-export const Sidebar = ({
+const Sidebar = ({
   children,
   avatarSrc,
   name,
@@ -232,3 +232,5 @@ export const Sidebar = ({
     </>
   );
 };
+
+export default Sidebar;
