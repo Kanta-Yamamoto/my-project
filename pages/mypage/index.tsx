@@ -9,9 +9,7 @@ export default function MyPage() {
       <Layout>
         <div className="w-full flex flex-col items-center gap-4">
           <div className="bg-white rounded-8 p-4 w-full">
-            {/* <span className=""> */}
             <Avatar src="" alt="" size="large" className="mx-auto" />
-            {/* </span> */}
             <p>名前：</p>
             <p>好きなもの：</p>
             <p>自己紹介：</p>
