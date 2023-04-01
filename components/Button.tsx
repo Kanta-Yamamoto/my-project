@@ -28,7 +28,7 @@ const style = {
   },
 } as const;
 
-export const Button = ({
+const Button = ({
   color = "primary",
   size = "medium",
   children,
@@ -67,3 +67,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default Button;

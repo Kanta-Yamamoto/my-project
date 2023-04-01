@@ -11,7 +11,7 @@ const style = {
   large: "w-[64px] h-[64px]",
 } as const;
 
-export const Avatar = ({ src, alt = "", size, ...rest }: AvatarProps) => {
+const Avatar = ({ src, alt = "", size, ...rest }: AvatarProps) => {
   return (
     <Image
       src={src ? src : "/default_avatar.svg"}
@@ -23,3 +23,5 @@ export const Avatar = ({ src, alt = "", size, ...rest }: AvatarProps) => {
     ></Image>
   );
 };
+
+export default Avatar;

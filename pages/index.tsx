@@ -1,6 +1,6 @@
-import { Avatar } from "./components/Avatar";
-import { Button } from "./components/Button";
-import Layout from "./components/Layout";
+import Avatar from "../components/Avatar";
+import Button from "../components/Button";
+import Layout from "../components/Layout";
 
 export default function Home() {
   return (

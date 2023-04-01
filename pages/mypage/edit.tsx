@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Layout from "../components/Layout";
-import { Button } from "../components/Button";
+import Layout from "../../components/Layout";
+import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 
