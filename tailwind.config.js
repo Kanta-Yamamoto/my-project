@@ -29,6 +29,8 @@ module.exports = {
         "sky-blue": "#2072CB",
         "light-gray": "#DDE6E8",
         gray: "#B4C0CA",
+        "base-gray": "#edf2f7",
+        black: "#292929",
       },
       fontSize: {
         xs: "0.625rem",
@@ -37,6 +39,7 @@ module.exports = {
         lg: "1rem",
         xl: "1.125rem",
         "2xl": "1.5rem",
+        max: "2rem",
       },
     },
   },
