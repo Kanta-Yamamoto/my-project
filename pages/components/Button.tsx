@@ -32,7 +32,7 @@ export const Button = ({
   color = "primary",
   size = "medium",
   children,
-  grow,
+  grow = false,
   isLoading,
   ...rest
 }: ButtonProps) => {
@@ -42,7 +42,7 @@ export const Button = ({
         "flex items-center gap-1 border-[1px] text-bold relative font-semibold disabled:pointer-events-none",
         style.colors[color],
         style.sizes[size],
-        grow && "w-full",
+        grow && "",
         isLoading && "pointer-events-none opacity-50"
       )}
       {...rest}
