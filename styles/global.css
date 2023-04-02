@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .hidden-scrollbar {
+    -ms-overflow-style: none; /* IE, Edge 対応 */
+    scrollbar-width: none; /* Firefox 対応 */
+  }
+  .hidden-scrollbar::-webkit-scrollbar {
+    /* Chrome, Safari 対応 */
+    display: none;
+  }
+}
+
+@keyframes openAnimation {
+  0% {
+    width: 0px;
+    background-color: aqua;
+  }
+  100% {
+    width: 100%;
+    background-color: red;
+  }
+}
+
+@keyframes closeAnimation {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fade-in-delay-1 {
+  animation: fadeIn 1s ease-in-out 0.5s;
+  animation-fill-mode: both;
+}
+
+.fade-in-delay-2 {
+  animation: fadeIn 1s ease-in-out 1s;
+  animation-fill-mode: both;
+}
+
+.fade-in-delay-3 {
+  animation: fadeIn 1s ease-in-out 1.5s;
+  animation-fill-mode: both;
+}
+
+body {
+  font-family: "ヒラギノ角ゴシック", '"ヒラギノ角ゴ Pro W3"',
+    '"Hiragino Kaku Gothic Pro"', "游ゴシック", "YuGothic", "メイリオ", "Meiryo",
+    '"ＭＳ Ｐゴシック"', "sans-serif";
+}

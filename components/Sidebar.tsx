@@ -3,6 +3,7 @@ import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
 import { useState } from "react";
 import Avatar from "./Avatar";
+import Image from "next/image";
 
 interface NestedMenuItem {
   name: string;
@@ -28,8 +29,7 @@ type SidebarProps = {
 
 const style = {
   types: {
-    default:
-      "bg-gradient-to-b from-[#1D0F75] to-[#4E4392] text-white opacity-80",
+    default: "bg-main text-white opacity-80",
     setting: "bg-bg-gray text-black",
   },
 } as const;
@@ -95,9 +95,7 @@ const Sidebar = ({
         <div
           onMouseLeave={() => setIsOpen(!isOpen)}
           className={`${"fixed"}  backdrop-blur-lg shadow-lg h-screen overflow-hidden transition-all ease-in-out ${
-            isOpen
-              ? "w-[213px] animate-openAnimation duration-500"
-              : "w-0 animate-closeAnimation duration-500"
+            isOpen ? "w-[213px] duration-500" : "w-0 duration-500"
           }`}
         >
           <>
@@ -194,18 +192,20 @@ const Sidebar = ({
                     ))}
                   </div>
                   {type === "default" && (
-                    <div className="flex flex-col py-2 mt-10">
-                      {footerItems.map((item) => (
-                        <>
-                          <Link
-                            href={item.link}
-                            className="hover:bg-white hover:bg-opacity-20 hover:rounded-4 hover:cursor-pointer hover:font-normal text-md font-light px-2 py-[6px] w-full"
-                          >
-                            {item.name}
-                          </Link>
-                        </>
-                      ))}
-                    </div>
+                    <>
+                      <div className="flex flex-col py-2 mt-10">
+                        {footerItems.map((item) => (
+                          <>
+                            <Link
+                              href={item.link}
+                              className="hover:bg-white hover:bg-opacity-20 hover:rounded-4 hover:cursor-pointer hover:font-normal text-md font-light px-2 py-[6px] w-full"
+                            >
+                              {item.name}
+                            </Link>
+                          </>
+                        ))}
+                      </div>
+                    </>
                   )}
                 </div>
               </div>
