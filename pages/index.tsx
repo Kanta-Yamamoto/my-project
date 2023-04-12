@@ -2,8 +2,28 @@ import Image from "next/image";
 import Avatar from "../components/Avatar";
 import Button from "../components/Button";
 import Layout from "../components/Layout";
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_ALL_TODOS } from '../graphql/queries';
+import { CREATE_TODO } from '../graphql/mutations';
+
+
 
 export default function Home() {
+
+  const { loading, error, data } = useQuery(GET_ALL_TODOS);
+
+const [createTodo] = useMutation(CREATE_TODO, {
+  update(cache, { data: { createTodo } }) {
+    const existingTodos:any = cache.readQuery({ query: GET_ALL_TODOS });
+    cache.writeQuery({
+      query: GET_ALL_TODOS,
+      data: { todoFindAll: existingTodos.todoFindAll.concat([createTodo]) },
+    });
+  },
+});
+if (loading) return <p>Loading...</p>;
+if (error) return <p>Error: {error.message}</p>;
+
   return (
     <>
       <Layout>
@@ -26,6 +46,30 @@ export default function Home() {
             </p>
           </div>
         </div>
+
+        <div>
+      <ul>
+        {data.todoFindAll.map((todo:any) => (
+          <li key={todo.todo_id}>{todo.title}</li>
+        ))}
+      </ul>
+      {/* <button
+        onClick={() =>
+          createTodo({
+            variables: {
+              todo: {
+                title: 'New Todo',
+                detail: 'This is a new todo item.',
+                deadline: '2023-04-30T23:59:59Z',
+              },
+            },
+          })
+        }
+      >
+        Add Todo
+      </button> */}
+    </div>
+
       </Layout>
     </>
   );

@@ -4,6 +4,8 @@ import Modal from "../components/modal";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_ALL_TODOS } from '../graphql/queries';
 
 interface FormData {
   username: string;
@@ -54,6 +56,7 @@ const Items: Item[] = [
 ];
 
 export default function Task() {
+  const { loading, error, data } = useQuery(GET_ALL_TODOS);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const router = useRouter();
@@ -80,6 +83,10 @@ export default function Task() {
       e.target.setCustomValidity("");
     }
   };
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+
   return (
     <>
       <Layout>
@@ -156,22 +163,22 @@ export default function Task() {
             </Button>
           </div>
 
-          {Items.map((item) => (
-            <>
+           {data.todoFindAll.map((todo:any) => (
+           <>
               <div
-                key={item.name}
+                key={todo.todo_id}
                 className="bg-white rounded-8 cursor-pointer"
               >
                 <div className="w-full bg-primary text-white font-bold rounded-t-8 p-2">
-                  {item.name}
+                  {todo.title}
                 </div>
 
                 <div className="p-2 min-h-[80px] text-left">
-                  {item.content}{" "}
+                  {todo.detail}
                 </div>
               </div>
             </>
-          ))}
+        ))}
         </div>
       </Layout>
     </>
